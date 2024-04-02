@@ -12,51 +12,51 @@ part of 'view_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ViewState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() error,
+    required TResult Function() idle,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Exception? error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? error,
+    TResult? Function()? idle,
     TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(Exception? error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? error,
+    TResult Function()? idle,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Exception? error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ViewStateError value) error,
+    required TResult Function(ViewStateIdle value) idle,
     required TResult Function(ViewStateLoading value) loading,
-    required TResult Function(ViewStateLoaded value) loaded,
+    required TResult Function(ViewStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ViewStateError value)? error,
+    TResult? Function(ViewStateIdle value)? idle,
     TResult? Function(ViewStateLoading value)? loading,
-    TResult? Function(ViewStateLoaded value)? loaded,
+    TResult? Function(ViewStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ViewStateError value)? error,
+    TResult Function(ViewStateIdle value)? idle,
     TResult Function(ViewStateLoading value)? loading,
-    TResult Function(ViewStateLoaded value)? loaded,
+    TResult Function(ViewStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,35 +80,35 @@ class _$ViewStateCopyWithImpl<$Res, $Val extends ViewState>
 }
 
 /// @nodoc
-abstract class _$$ViewStateErrorCopyWith<$Res> {
-  factory _$$ViewStateErrorCopyWith(
-          _$ViewStateError value, $Res Function(_$ViewStateError) then) =
-      __$$ViewStateErrorCopyWithImpl<$Res>;
+abstract class _$$ViewStateIdleImplCopyWith<$Res> {
+  factory _$$ViewStateIdleImplCopyWith(
+          _$ViewStateIdleImpl value, $Res Function(_$ViewStateIdleImpl) then) =
+      __$$ViewStateIdleImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ViewStateErrorCopyWithImpl<$Res>
-    extends _$ViewStateCopyWithImpl<$Res, _$ViewStateError>
-    implements _$$ViewStateErrorCopyWith<$Res> {
-  __$$ViewStateErrorCopyWithImpl(
-      _$ViewStateError _value, $Res Function(_$ViewStateError) _then)
+class __$$ViewStateIdleImplCopyWithImpl<$Res>
+    extends _$ViewStateCopyWithImpl<$Res, _$ViewStateIdleImpl>
+    implements _$$ViewStateIdleImplCopyWith<$Res> {
+  __$$ViewStateIdleImplCopyWithImpl(
+      _$ViewStateIdleImpl _value, $Res Function(_$ViewStateIdleImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ViewStateError implements ViewStateError {
-  const _$ViewStateError();
+class _$ViewStateIdleImpl implements ViewStateIdle {
+  const _$ViewStateIdleImpl();
 
   @override
   String toString() {
-    return 'ViewState.error()';
+    return 'ViewState.idle()';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ViewStateError);
+        (other.runtimeType == runtimeType && other is _$ViewStateIdleImpl);
   }
 
   @override
@@ -117,33 +117,33 @@ class _$ViewStateError implements ViewStateError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() error,
+    required TResult Function() idle,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Exception? error) error,
   }) {
-    return error();
+    return idle();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? error,
+    TResult? Function()? idle,
     TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(Exception? error)? error,
   }) {
-    return error?.call();
+    return idle?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? error,
+    TResult Function()? idle,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Exception? error)? error,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error();
+    if (idle != null) {
+      return idle();
     }
     return orElse();
   }
@@ -151,62 +151,62 @@ class _$ViewStateError implements ViewStateError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ViewStateError value) error,
+    required TResult Function(ViewStateIdle value) idle,
     required TResult Function(ViewStateLoading value) loading,
-    required TResult Function(ViewStateLoaded value) loaded,
+    required TResult Function(ViewStateError value) error,
   }) {
-    return error(this);
+    return idle(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ViewStateError value)? error,
+    TResult? Function(ViewStateIdle value)? idle,
     TResult? Function(ViewStateLoading value)? loading,
-    TResult? Function(ViewStateLoaded value)? loaded,
+    TResult? Function(ViewStateError value)? error,
   }) {
-    return error?.call(this);
+    return idle?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ViewStateError value)? error,
+    TResult Function(ViewStateIdle value)? idle,
     TResult Function(ViewStateLoading value)? loading,
-    TResult Function(ViewStateLoaded value)? loaded,
+    TResult Function(ViewStateError value)? error,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (idle != null) {
+      return idle(this);
     }
     return orElse();
   }
 }
 
-abstract class ViewStateError implements ViewState {
-  const factory ViewStateError() = _$ViewStateError;
+abstract class ViewStateIdle implements ViewState {
+  const factory ViewStateIdle() = _$ViewStateIdleImpl;
 }
 
 /// @nodoc
-abstract class _$$ViewStateLoadingCopyWith<$Res> {
-  factory _$$ViewStateLoadingCopyWith(
-          _$ViewStateLoading value, $Res Function(_$ViewStateLoading) then) =
-      __$$ViewStateLoadingCopyWithImpl<$Res>;
+abstract class _$$ViewStateLoadingImplCopyWith<$Res> {
+  factory _$$ViewStateLoadingImplCopyWith(_$ViewStateLoadingImpl value,
+          $Res Function(_$ViewStateLoadingImpl) then) =
+      __$$ViewStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ViewStateLoadingCopyWithImpl<$Res>
-    extends _$ViewStateCopyWithImpl<$Res, _$ViewStateLoading>
-    implements _$$ViewStateLoadingCopyWith<$Res> {
-  __$$ViewStateLoadingCopyWithImpl(
-      _$ViewStateLoading _value, $Res Function(_$ViewStateLoading) _then)
+class __$$ViewStateLoadingImplCopyWithImpl<$Res>
+    extends _$ViewStateCopyWithImpl<$Res, _$ViewStateLoadingImpl>
+    implements _$$ViewStateLoadingImplCopyWith<$Res> {
+  __$$ViewStateLoadingImplCopyWithImpl(_$ViewStateLoadingImpl _value,
+      $Res Function(_$ViewStateLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ViewStateLoading implements ViewStateLoading {
-  const _$ViewStateLoading();
+class _$ViewStateLoadingImpl implements ViewStateLoading {
+  const _$ViewStateLoadingImpl();
 
   @override
   String toString() {
@@ -214,9 +214,9 @@ class _$ViewStateLoading implements ViewStateLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ViewStateLoading);
+        (other.runtimeType == runtimeType && other is _$ViewStateLoadingImpl);
   }
 
   @override
@@ -225,9 +225,9 @@ class _$ViewStateLoading implements ViewStateLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() error,
+    required TResult Function() idle,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Exception? error) error,
   }) {
     return loading();
   }
@@ -235,9 +235,9 @@ class _$ViewStateLoading implements ViewStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? error,
+    TResult? Function()? idle,
     TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(Exception? error)? error,
   }) {
     return loading?.call();
   }
@@ -245,9 +245,9 @@ class _$ViewStateLoading implements ViewStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? error,
+    TResult Function()? idle,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Exception? error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -259,9 +259,9 @@ class _$ViewStateLoading implements ViewStateLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ViewStateError value) error,
+    required TResult Function(ViewStateIdle value) idle,
     required TResult Function(ViewStateLoading value) loading,
-    required TResult Function(ViewStateLoaded value) loaded,
+    required TResult Function(ViewStateError value) error,
   }) {
     return loading(this);
   }
@@ -269,9 +269,9 @@ class _$ViewStateLoading implements ViewStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ViewStateError value)? error,
+    TResult? Function(ViewStateIdle value)? idle,
     TResult? Function(ViewStateLoading value)? loading,
-    TResult? Function(ViewStateLoaded value)? loaded,
+    TResult? Function(ViewStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -279,9 +279,9 @@ class _$ViewStateLoading implements ViewStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ViewStateError value)? error,
+    TResult Function(ViewStateIdle value)? idle,
     TResult Function(ViewStateLoading value)? loading,
-    TResult Function(ViewStateLoaded value)? loaded,
+    TResult Function(ViewStateError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -292,74 +292,101 @@ class _$ViewStateLoading implements ViewStateLoading {
 }
 
 abstract class ViewStateLoading implements ViewState {
-  const factory ViewStateLoading() = _$ViewStateLoading;
+  const factory ViewStateLoading() = _$ViewStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$ViewStateLoadedCopyWith<$Res> {
-  factory _$$ViewStateLoadedCopyWith(
-          _$ViewStateLoaded value, $Res Function(_$ViewStateLoaded) then) =
-      __$$ViewStateLoadedCopyWithImpl<$Res>;
+abstract class _$$ViewStateErrorImplCopyWith<$Res> {
+  factory _$$ViewStateErrorImplCopyWith(_$ViewStateErrorImpl value,
+          $Res Function(_$ViewStateErrorImpl) then) =
+      __$$ViewStateErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Exception? error});
 }
 
 /// @nodoc
-class __$$ViewStateLoadedCopyWithImpl<$Res>
-    extends _$ViewStateCopyWithImpl<$Res, _$ViewStateLoaded>
-    implements _$$ViewStateLoadedCopyWith<$Res> {
-  __$$ViewStateLoadedCopyWithImpl(
-      _$ViewStateLoaded _value, $Res Function(_$ViewStateLoaded) _then)
+class __$$ViewStateErrorImplCopyWithImpl<$Res>
+    extends _$ViewStateCopyWithImpl<$Res, _$ViewStateErrorImpl>
+    implements _$$ViewStateErrorImplCopyWith<$Res> {
+  __$$ViewStateErrorImplCopyWithImpl(
+      _$ViewStateErrorImpl _value, $Res Function(_$ViewStateErrorImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_$ViewStateErrorImpl(
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Exception?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$ViewStateLoaded implements ViewStateLoaded {
-  const _$ViewStateLoaded();
+class _$ViewStateErrorImpl implements ViewStateError {
+  const _$ViewStateErrorImpl({this.error});
+
+  @override
+  final Exception? error;
 
   @override
   String toString() {
-    return 'ViewState.loaded()';
+    return 'ViewState.error(error: $error)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ViewStateLoaded);
+        (other.runtimeType == runtimeType &&
+            other is _$ViewStateErrorImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ViewStateErrorImplCopyWith<_$ViewStateErrorImpl> get copyWith =>
+      __$$ViewStateErrorImplCopyWithImpl<_$ViewStateErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() error,
+    required TResult Function() idle,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(Exception? error) error,
   }) {
-    return loaded();
+    return error(this.error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? error,
+    TResult? Function()? idle,
     TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(Exception? error)? error,
   }) {
-    return loaded?.call();
+    return error?.call(this.error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? error,
+    TResult Function()? idle,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(Exception? error)? error,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded();
+    if (error != null) {
+      return error(this.error);
     }
     return orElse();
   }
@@ -367,38 +394,43 @@ class _$ViewStateLoaded implements ViewStateLoaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ViewStateError value) error,
+    required TResult Function(ViewStateIdle value) idle,
     required TResult Function(ViewStateLoading value) loading,
-    required TResult Function(ViewStateLoaded value) loaded,
+    required TResult Function(ViewStateError value) error,
   }) {
-    return loaded(this);
+    return error(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ViewStateError value)? error,
+    TResult? Function(ViewStateIdle value)? idle,
     TResult? Function(ViewStateLoading value)? loading,
-    TResult? Function(ViewStateLoaded value)? loaded,
+    TResult? Function(ViewStateError value)? error,
   }) {
-    return loaded?.call(this);
+    return error?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ViewStateError value)? error,
+    TResult Function(ViewStateIdle value)? idle,
     TResult Function(ViewStateLoading value)? loading,
-    TResult Function(ViewStateLoaded value)? loaded,
+    TResult Function(ViewStateError value)? error,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (error != null) {
+      return error(this);
     }
     return orElse();
   }
 }
 
-abstract class ViewStateLoaded implements ViewState {
-  const factory ViewStateLoaded() = _$ViewStateLoaded;
+abstract class ViewStateError implements ViewState {
+  const factory ViewStateError({final Exception? error}) = _$ViewStateErrorImpl;
+
+  Exception? get error;
+  @JsonKey(ignore: true)
+  _$$ViewStateErrorImplCopyWith<_$ViewStateErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

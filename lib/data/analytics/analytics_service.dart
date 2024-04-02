@@ -1,5 +1,9 @@
-abstract class AnalyticsService {
-  Future<void> logScreenVisit(String screenName);
+class AnalyticsService {
+  Future<void> logScreenVisit(String screenName) {
+    throw UnimplementedError();
+  }
 
-  Future<void> logButtonClick(String screenName, String buttonId);
+  Future<void> logButtonClick(String screenName, String buttonId) {
+    throw UnimplementedError();
+  }
 }

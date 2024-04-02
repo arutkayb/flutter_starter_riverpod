@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_starter_riverpod/pages/home/controller/counter_controller.dart';
-import 'package:flutter_starter_riverpod/service_locator.dart';
-import 'package:flutter_starter_riverpod/pages/home/controller/home_screen_controller.dart';
+import 'package:flutter_starter_riverpod/pages/home/viewmodel/counter_viewmodel.dart';
+import 'package:flutter_starter_riverpod/pages/home/viewmodel/home_screen_viewmodel.dart';
 import 'package:flutter_starter_riverpod/pages/home/widget/custom_button.dart';
+import 'package:flutter_starter_riverpod/service_locator.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   final String screenName = 'home_screen';
@@ -19,12 +19,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   void initState() {
     super.initState();
 
-    ref.read(mockAnalyticsServiceProvider).logScreenVisit(widget.screenName);
+    ref.read(analyticsServiceProvider).logScreenVisit(widget.screenName);
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(homeScreenControllerProvider);
+    final state = ref.watch(homeScreenViewModelProvider);
 
     return SafeArea(
       child: Scaffold(
@@ -43,7 +43,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     loading: (value) => const CircularProgressIndicator(
                       color: Colors.red,
                     ),
-                    loaded: (value) => Text(
+                    idle: (value) => Text(
                       'Welcome to Flutter Starter Riverpod!'
                       '\nOperations counter: ${ref.watch(counterCountProvider).toString()}'
                       '${state.user?.id == null ? '' : "\nNew user id: ${state.user?.id}"}',
@@ -52,25 +52,25 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                   CustomButton(
                       onPress: () {
-                        ref.read(mockAnalyticsServiceProvider).logButtonClick(
+                        ref.read(analyticsServiceProvider).logButtonClick(
                               widget.screenName,
                               'get_user',
                             );
 
                         ref
-                            .read(homeScreenControllerProvider.notifier)
+                            .read(homeScreenViewModelProvider.notifier)
                             .getUser();
                       },
                       text: 'Get User'),
                   CustomButton(
                       onPress: () {
-                        ref.read(mockAnalyticsServiceProvider).logButtonClick(
+                        ref.read(analyticsServiceProvider).logButtonClick(
                               widget.screenName,
                               'save_user',
                             );
 
                         ref
-                            .read(homeScreenControllerProvider.notifier)
+                            .read(homeScreenViewModelProvider.notifier)
                             .saveUser('${ref.watch(counterCountProvider)}');
                       },
                       text: 'Save User'),

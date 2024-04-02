@@ -12,7 +12,7 @@ part of 'counter_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CounterState {
@@ -67,11 +67,11 @@ class _$CounterStateCopyWithImpl<$Res, $Val extends CounterState>
 }
 
 /// @nodoc
-abstract class _$$_CounterStateCopyWith<$Res>
+abstract class _$$CounterStateImplCopyWith<$Res>
     implements $CounterStateCopyWith<$Res> {
-  factory _$$_CounterStateCopyWith(
-          _$_CounterState value, $Res Function(_$_CounterState) then) =
-      __$$_CounterStateCopyWithImpl<$Res>;
+  factory _$$CounterStateImplCopyWith(
+          _$CounterStateImpl value, $Res Function(_$CounterStateImpl) then) =
+      __$$CounterStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Counter counter});
@@ -81,11 +81,11 @@ abstract class _$$_CounterStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CounterStateCopyWithImpl<$Res>
-    extends _$CounterStateCopyWithImpl<$Res, _$_CounterState>
-    implements _$$_CounterStateCopyWith<$Res> {
-  __$$_CounterStateCopyWithImpl(
-      _$_CounterState _value, $Res Function(_$_CounterState) _then)
+class __$$CounterStateImplCopyWithImpl<$Res>
+    extends _$CounterStateCopyWithImpl<$Res, _$CounterStateImpl>
+    implements _$$CounterStateImplCopyWith<$Res> {
+  __$$CounterStateImplCopyWithImpl(
+      _$CounterStateImpl _value, $Res Function(_$CounterStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +93,7 @@ class __$$_CounterStateCopyWithImpl<$Res>
   $Res call({
     Object? counter = null,
   }) {
-    return _then(_$_CounterState(
+    return _then(_$CounterStateImpl(
       null == counter
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
@@ -104,8 +104,8 @@ class __$$_CounterStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CounterState implements _CounterState {
-  const _$_CounterState(this.counter);
+class _$CounterStateImpl implements _CounterState {
+  const _$CounterStateImpl(this.counter);
 
   @override
   final Counter counter;
@@ -116,10 +116,10 @@ class _$_CounterState implements _CounterState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CounterState &&
+            other is _$CounterStateImpl &&
             (identical(other.counter, counter) || other.counter == counter));
   }
 
@@ -129,17 +129,17 @@ class _$_CounterState implements _CounterState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CounterStateCopyWith<_$_CounterState> get copyWith =>
-      __$$_CounterStateCopyWithImpl<_$_CounterState>(this, _$identity);
+  _$$CounterStateImplCopyWith<_$CounterStateImpl> get copyWith =>
+      __$$CounterStateImplCopyWithImpl<_$CounterStateImpl>(this, _$identity);
 }
 
 abstract class _CounterState implements CounterState {
-  const factory _CounterState(final Counter counter) = _$_CounterState;
+  const factory _CounterState(final Counter counter) = _$CounterStateImpl;
 
   @override
   Counter get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_CounterStateCopyWith<_$_CounterState> get copyWith =>
+  _$$CounterStateImplCopyWith<_$CounterStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

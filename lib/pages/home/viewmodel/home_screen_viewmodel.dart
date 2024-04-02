@@ -1,32 +1,32 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_starter_riverpod/common/core/view_state.dart';
-import 'package:flutter_starter_riverpod/data/repository/models/user.dart';
-import 'package:flutter_starter_riverpod/data/repository/use_cases/user/i_use_case_user.dart';
-import 'package:flutter_starter_riverpod/pages/home/controller/counter_controller.dart';
-import 'package:flutter_starter_riverpod/pages/home/controller/home_screen_state.dart';
+import 'package:flutter_starter_riverpod/data/models/user.dart';
+import 'package:flutter_starter_riverpod/domain/use_cases/user/use_case_user.dart';
 import 'package:flutter_starter_riverpod/pages/home/model/custom_error.dart';
+import 'package:flutter_starter_riverpod/pages/home/viewmodel/counter_viewmodel.dart';
+import 'package:flutter_starter_riverpod/pages/home/viewmodel/home_screen_state.dart';
 import 'package:flutter_starter_riverpod/service_locator.dart';
 
-final homeScreenControllerProvider =
-    StateNotifierProvider<HomeScreenController, HomeScreenState>(
-  (ref) => HomeScreenController(ref.read(useCaseUserProvider),
-      ref.read(counterControllerProvider.notifier)),
+final homeScreenViewModelProvider =
+    StateNotifierProvider<HomeScreenViewModel, HomeScreenState>(
+  (ref) => HomeScreenViewModel(ref.read(useCaseUserProvider),
+      ref.read(counterViewModelProvider.notifier)),
 );
 
-class HomeScreenController extends StateNotifier<HomeScreenState> {
-  HomeScreenController(this._useCaseUser, this._counterController)
+class HomeScreenViewModel extends StateNotifier<HomeScreenState> {
+  HomeScreenViewModel(this._useCaseUser, this._counterViewModel)
       : super(
           const HomeScreenState(
             user: null,
-            viewState: ViewStateLoaded(),
+            viewState: ViewStateIdle(),
           ),
         );
 
-  final IUseCaseUser _useCaseUser;
-  final CounterController _counterController;
+  final UseCaseUser _useCaseUser;
+  final CounterViewModel _counterViewModel;
 
   Future<void> getUser() async {
-    _counterController.increment();
+    _counterViewModel.increment();
 
     state = state.copyWith(
       viewState: const ViewStateLoading(),
@@ -44,7 +44,7 @@ class HomeScreenController extends StateNotifier<HomeScreenState> {
         );
       } else {
         state = state.copyWith(
-          viewState: const ViewStateLoaded(),
+          viewState: const ViewStateIdle(),
           user: user,
         );
       }
@@ -57,7 +57,7 @@ class HomeScreenController extends StateNotifier<HomeScreenState> {
   }
 
   Future<void> saveUser(String id) async {
-    _counterController.increment();
+    _counterViewModel.increment();
 
     state = state.copyWith(
       viewState: const ViewStateLoading(),
@@ -69,7 +69,7 @@ class HomeScreenController extends StateNotifier<HomeScreenState> {
       final user = await _useCaseUser.saveUser(User(id));
 
       state = state.copyWith(
-        viewState: const ViewStateLoaded(),
+        viewState: const ViewStateIdle(),
         user: user,
       );
     } catch (e) {

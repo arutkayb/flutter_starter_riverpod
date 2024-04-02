@@ -3,10 +3,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'view_state.freezed.dart';
 
 @freezed
-class ViewState with _$ViewState {
-  const factory ViewState.error() = ViewStateError;
+abstract class ViewState with _$ViewState {
+  const factory ViewState.idle() = ViewStateIdle;
 
   const factory ViewState.loading() = ViewStateLoading;
 
-  const factory ViewState.loaded() = ViewStateLoaded;
+  const factory ViewState.error({Exception? error}) = ViewStateError;
 }

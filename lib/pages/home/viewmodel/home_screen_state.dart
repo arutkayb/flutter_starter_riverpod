@@ -1,5 +1,5 @@
 import 'package:flutter_starter_riverpod/common/core/view_state.dart';
-import 'package:flutter_starter_riverpod/data/repository/models/user.dart';
+import 'package:flutter_starter_riverpod/data/models/user.dart';
 import 'package:flutter_starter_riverpod/pages/home/model/custom_error.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

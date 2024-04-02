@@ -12,7 +12,7 @@ part of 'custom_error.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CustomError {
@@ -57,22 +57,22 @@ class _$CustomErrorCopyWithImpl<$Res, $Val extends CustomError>
 }
 
 /// @nodoc
-abstract class _$$_CustomErrorCopyWith<$Res>
+abstract class _$$CustomErrorImplCopyWith<$Res>
     implements $CustomErrorCopyWith<$Res> {
-  factory _$$_CustomErrorCopyWith(
-          _$_CustomError value, $Res Function(_$_CustomError) then) =
-      __$$_CustomErrorCopyWithImpl<$Res>;
+  factory _$$CustomErrorImplCopyWith(
+          _$CustomErrorImpl value, $Res Function(_$CustomErrorImpl) then) =
+      __$$CustomErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_CustomErrorCopyWithImpl<$Res>
-    extends _$CustomErrorCopyWithImpl<$Res, _$_CustomError>
-    implements _$$_CustomErrorCopyWith<$Res> {
-  __$$_CustomErrorCopyWithImpl(
-      _$_CustomError _value, $Res Function(_$_CustomError) _then)
+class __$$CustomErrorImplCopyWithImpl<$Res>
+    extends _$CustomErrorCopyWithImpl<$Res, _$CustomErrorImpl>
+    implements _$$CustomErrorImplCopyWith<$Res> {
+  __$$CustomErrorImplCopyWithImpl(
+      _$CustomErrorImpl _value, $Res Function(_$CustomErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_CustomErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_CustomError(
+    return _then(_$CustomErrorImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_CustomErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CustomError implements _CustomError {
-  const _$_CustomError(this.message);
+class _$CustomErrorImpl implements _CustomError {
+  const _$CustomErrorImpl(this.message);
 
   @override
   final String message;
@@ -103,10 +103,10 @@ class _$_CustomError implements _CustomError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CustomError &&
+            other is _$CustomErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -116,17 +116,17 @@ class _$_CustomError implements _CustomError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CustomErrorCopyWith<_$_CustomError> get copyWith =>
-      __$$_CustomErrorCopyWithImpl<_$_CustomError>(this, _$identity);
+  _$$CustomErrorImplCopyWith<_$CustomErrorImpl> get copyWith =>
+      __$$CustomErrorImplCopyWithImpl<_$CustomErrorImpl>(this, _$identity);
 }
 
 abstract class _CustomError implements CustomError {
-  const factory _CustomError(final String message) = _$_CustomError;
+  const factory _CustomError(final String message) = _$CustomErrorImpl;
 
   @override
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_CustomErrorCopyWith<_$_CustomError> get copyWith =>
+  _$$CustomErrorImplCopyWith<_$CustomErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

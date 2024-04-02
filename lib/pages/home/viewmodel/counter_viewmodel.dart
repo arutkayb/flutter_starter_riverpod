@@ -1,22 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_starter_riverpod/pages/home/controller/counter_state.dart';
 import 'package:flutter_starter_riverpod/pages/home/model/counter.dart';
+import 'package:flutter_starter_riverpod/pages/home/viewmodel/counter_state.dart';
 
-final counterControllerProvider =
-    StateNotifierProvider<CounterController, CounterState>(
-  (ref) => CounterController(),
+final counterViewModelProvider =
+    StateNotifierProvider<CounterViewModel, CounterState>(
+  (ref) => CounterViewModel(),
 );
 
 final counterCountProvider = Provider(
   (ref) {
-    final counterState = ref.watch(counterControllerProvider);
+    final counterState = ref.watch(counterViewModelProvider);
 
     return counterState.counter.count;
   },
 );
 
-class CounterController extends StateNotifier<CounterState> {
-  CounterController()
+class CounterViewModel extends StateNotifier<CounterState> {
+  CounterViewModel()
       : super(
           const CounterState(
             Counter(0),
