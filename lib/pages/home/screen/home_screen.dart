@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_starter_riverpod/pages/home/viewmodel/counter_viewmodel.dart';
@@ -38,13 +39,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   state.viewState.map(
                     error: (value) => DecoratedBox(
                       decoration: const BoxDecoration(color: Colors.red),
-                      child: Text(state.error?.message ?? 'Generic error'),
+                      child: Text(value.error?.toString() ?? 'Generic error'),
                     ),
                     loading: (value) => const CircularProgressIndicator(
                       color: Colors.red,
                     ),
                     idle: (value) => Text(
-                      'Welcome to Flutter Starter Riverpod!'
+                      '${'welcome'.tr()}'
                       '\nOperations counter: ${ref.watch(counterCountProvider).toString()}'
                       '${state.user?.id == null ? '' : "\nNew user id: ${state.user?.id}"}',
                       textAlign: TextAlign.center,

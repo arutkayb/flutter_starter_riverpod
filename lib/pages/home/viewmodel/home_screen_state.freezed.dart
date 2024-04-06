@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HomeScreenState {
   User? get user => throw _privateConstructorUsedError;
   ViewState get viewState => throw _privateConstructorUsedError;
-  CustomError? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeScreenStateCopyWith<HomeScreenState> get copyWith =>
@@ -31,11 +30,10 @@ abstract class $HomeScreenStateCopyWith<$Res> {
           HomeScreenState value, $Res Function(HomeScreenState) then) =
       _$HomeScreenStateCopyWithImpl<$Res, HomeScreenState>;
   @useResult
-  $Res call({User? user, ViewState viewState, CustomError? error});
+  $Res call({User? user, ViewState viewState});
 
   $UserCopyWith<$Res>? get user;
   $ViewStateCopyWith<$Res> get viewState;
-  $CustomErrorCopyWith<$Res>? get error;
 }
 
 /// @nodoc
@@ -53,7 +51,6 @@ class _$HomeScreenStateCopyWithImpl<$Res, $Val extends HomeScreenState>
   $Res call({
     Object? user = freezed,
     Object? viewState = null,
-    Object? error = freezed,
   }) {
     return _then(_value.copyWith(
       user: freezed == user
@@ -64,10 +61,6 @@ class _$HomeScreenStateCopyWithImpl<$Res, $Val extends HomeScreenState>
           ? _value.viewState
           : viewState // ignore: cast_nullable_to_non_nullable
               as ViewState,
-      error: freezed == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as CustomError?,
     ) as $Val);
   }
 
@@ -90,18 +83,6 @@ class _$HomeScreenStateCopyWithImpl<$Res, $Val extends HomeScreenState>
       return _then(_value.copyWith(viewState: value) as $Val);
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CustomErrorCopyWith<$Res>? get error {
-    if (_value.error == null) {
-      return null;
-    }
-
-    return $CustomErrorCopyWith<$Res>(_value.error!, (value) {
-      return _then(_value.copyWith(error: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -112,14 +93,12 @@ abstract class _$$HomeScreenStateImplCopyWith<$Res>
       __$$HomeScreenStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({User? user, ViewState viewState, CustomError? error});
+  $Res call({User? user, ViewState viewState});
 
   @override
   $UserCopyWith<$Res>? get user;
   @override
   $ViewStateCopyWith<$Res> get viewState;
-  @override
-  $CustomErrorCopyWith<$Res>? get error;
 }
 
 /// @nodoc
@@ -135,7 +114,6 @@ class __$$HomeScreenStateImplCopyWithImpl<$Res>
   $Res call({
     Object? user = freezed,
     Object? viewState = null,
-    Object? error = freezed,
   }) {
     return _then(_$HomeScreenStateImpl(
       user: freezed == user
@@ -146,10 +124,6 @@ class __$$HomeScreenStateImplCopyWithImpl<$Res>
           ? _value.viewState
           : viewState // ignore: cast_nullable_to_non_nullable
               as ViewState,
-      error: freezed == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as CustomError?,
     ));
   }
 }
@@ -157,19 +131,16 @@ class __$$HomeScreenStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeScreenStateImpl implements _HomeScreenState {
-  const _$HomeScreenStateImpl(
-      {required this.user, required this.viewState, this.error});
+  const _$HomeScreenStateImpl({required this.user, required this.viewState});
 
   @override
   final User? user;
   @override
   final ViewState viewState;
-  @override
-  final CustomError? error;
 
   @override
   String toString() {
-    return 'HomeScreenState(user: $user, viewState: $viewState, error: $error)';
+    return 'HomeScreenState(user: $user, viewState: $viewState)';
   }
 
   @override
@@ -179,12 +150,11 @@ class _$HomeScreenStateImpl implements _HomeScreenState {
             other is _$HomeScreenStateImpl &&
             (identical(other.user, user) || other.user == user) &&
             (identical(other.viewState, viewState) ||
-                other.viewState == viewState) &&
-            (identical(other.error, error) || other.error == error));
+                other.viewState == viewState));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user, viewState, error);
+  int get hashCode => Object.hash(runtimeType, user, viewState);
 
   @JsonKey(ignore: true)
   @override
@@ -197,15 +167,12 @@ class _$HomeScreenStateImpl implements _HomeScreenState {
 abstract class _HomeScreenState implements HomeScreenState {
   const factory _HomeScreenState(
       {required final User? user,
-      required final ViewState viewState,
-      final CustomError? error}) = _$HomeScreenStateImpl;
+      required final ViewState viewState}) = _$HomeScreenStateImpl;
 
   @override
   User? get user;
   @override
   ViewState get viewState;
-  @override
-  CustomError? get error;
   @override
   @JsonKey(ignore: true)
   _$$HomeScreenStateImplCopyWith<_$HomeScreenStateImpl> get copyWith =>

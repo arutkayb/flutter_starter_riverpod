@@ -1,9 +1,9 @@
 class AnalyticsService {
-  Future<void> logScreenVisit(String screenName) {
-    throw UnimplementedError();
+  Future<void> logScreenVisit(String screenName) async {
+    return;
   }
 
-  Future<void> logButtonClick(String screenName, String buttonId) {
-    throw UnimplementedError();
+  Future<void> logButtonClick(String screenName, String buttonId) async {
+    return;
   }
 }

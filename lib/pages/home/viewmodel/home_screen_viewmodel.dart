@@ -2,10 +2,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_starter_riverpod/common/core/view_state.dart';
 import 'package:flutter_starter_riverpod/data/models/user.dart';
 import 'package:flutter_starter_riverpod/domain/use_cases/user/use_case_user.dart';
-import 'package:flutter_starter_riverpod/pages/home/model/custom_error.dart';
 import 'package:flutter_starter_riverpod/pages/home/viewmodel/counter_viewmodel.dart';
 import 'package:flutter_starter_riverpod/pages/home/viewmodel/home_screen_state.dart';
 import 'package:flutter_starter_riverpod/service_locator.dart';
+
+import '../../../common/exceptions/custom_exception.dart';
 
 final homeScreenViewModelProvider =
     StateNotifierProvider<HomeScreenViewModel, HomeScreenState>(
@@ -39,8 +40,9 @@ class HomeScreenViewModel extends StateNotifier<HomeScreenState> {
 
       if (user == null) {
         state = state.copyWith(
-          error: const CustomError('No User Found!'),
-          viewState: const ViewStateError(),
+          viewState: const ViewStateError(
+            error: CustomException('No User Found!'),
+          ),
         );
       } else {
         state = state.copyWith(
@@ -50,8 +52,11 @@ class HomeScreenViewModel extends StateNotifier<HomeScreenState> {
       }
     } catch (e) {
       state = state.copyWith(
-        error: CustomError(e.toString()),
-        viewState: const ViewStateError(),
+        viewState: ViewStateError(
+          error: CustomException(
+            e.toString(),
+          ),
+        ),
       );
     }
   }
@@ -74,8 +79,7 @@ class HomeScreenViewModel extends StateNotifier<HomeScreenState> {
       );
     } catch (e) {
       state = state.copyWith(
-        error: CustomError(e.toString()),
-        viewState: const ViewStateError(),
+        viewState: ViewStateError(error: CustomException(e.toString())),
       );
     }
   }
