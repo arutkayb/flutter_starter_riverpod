@@ -1,5 +1,15 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_starter_riverpod/data/data_sources/local/local_data_source.dart';
+import 'package:flutter_starter_riverpod/data/data_sources/remote/remote_data_source.dart';
 import 'package:flutter_starter_riverpod/data/models/user.dart';
 import 'package:flutter_starter_riverpod/data/repository/repository_base.dart';
+
+final userRepositoryProvider = Provider<UserRepository>((ref) {
+  return UserRepository(
+    ref.read(localDataSourceProvider.notifier),
+    ref.read(remoteDataSourceProvider),
+  );
+});
 
 class UserRepository extends RepositoryBase {
   UserRepository(super.localDataSource, super.remoteDataSource);

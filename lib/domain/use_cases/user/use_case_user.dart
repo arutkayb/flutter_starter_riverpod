@@ -1,5 +1,12 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_starter_riverpod/data/models/user.dart';
 import 'package:flutter_starter_riverpod/data/repository/user_repository.dart';
+
+final useCaseUserProvider = Provider<UseCaseUser>((ref) {
+  return UseCaseUser(
+    ref.read(userRepositoryProvider),
+  );
+});
 
 class UseCaseUser {
   const UseCaseUser(this._userRepository);

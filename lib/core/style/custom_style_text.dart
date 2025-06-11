@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_riverpod/common/style/custom_style_size.dart';
+import 'package:flutter_starter_riverpod/core/style/custom_style_size.dart';
 
 class CustomStyleText {
   static double get textSizeSmall => 3.textSizeUnit;

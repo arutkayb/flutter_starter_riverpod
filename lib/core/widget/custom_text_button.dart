@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_starter_riverpod/common/style/custom_style_size.dart';
-import 'package:flutter_starter_riverpod/common/style/custom_style_text.dart';
-import 'package:flutter_starter_riverpod/common/widget/custom_text.dart';
+import 'package:flutter_starter_riverpod/core/style/custom_style_size.dart';
+import 'package:flutter_starter_riverpod/core/style/custom_style_text.dart';
+import 'package:flutter_starter_riverpod/core/widget/custom_text.dart';
 
 class CustomTextButton extends StatefulWidget {
   final String text;
